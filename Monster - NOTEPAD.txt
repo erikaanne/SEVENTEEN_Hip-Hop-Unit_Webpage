@@ -1,0 +1,12 @@
+<html>
+   <head></head>
+   <body>
+       <center>
+          <a href="LALALI.html">
+             <img src="Monster - Album.png" class="center" width="600" height="600">
+          </a>
+          <br>
+          <a href="SVT Hip-Hop Unit (WEBPAGE).html"><b> HOME </b></a>
+       </center>
+   </body>
+</html>

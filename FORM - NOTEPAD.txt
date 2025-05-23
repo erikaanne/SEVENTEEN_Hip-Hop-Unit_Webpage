@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Here!</title>
+    <script>
+        function sendEmail() {
+            var firstName = document.getElementsByName("First Name")[0].value;
+            var middleName = document.getElementsByName("Middle Name")[0].value;
+            var lastName = document.getElementsByName("Last Name")[0].value;
+            var email = document.getElementsByName("Email")[0].value;
+            var address = document.getElementsByName("Address")[0].value;
+            var contact = document.getElementsByName("Contact Number")[0].value;
+            var additionalNote = document.getElementsByName("Additional Note")[0].value;
+
+            // Get selected payment method
+            var paymentMethod = "";
+            var radios = document.getElementsByName("Payment Method");
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    paymentMethod = radios[i].value;
+                }
+            }
+
+            // Get selected products
+            var products = "";
+            var checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
+            checkboxes.forEach((checkbox) => {
+                products += checkbox.name + " (" + checkbox.value + ")%0D%0A";
+            });
+
+            // Construct mailto link
+            var mailtoLink = "mailto:erika.hernandez.mnl@eac.edu.ph"
+                + "?subject=New Order"
+                + "&body=First Name: " + firstName
+                + "%0D%0AMiddle Name: " + middleName
+                + "%0D%0ALast Name: " + lastName
+                + "%0D%0AEmail: " + email
+                + "%0D%0AAddress: " + address
+                + "%0D%0AContact No.: " + contact
+                + "%0D%0APayment Method: " + paymentMethod
+                + "%0D%0AProducts Ordered:%0D%0A" + products
+                + "%0D%0AAdditional Note: " + additionalNote;
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>Shop Here!</h2>
+
+        <form onsubmit="sendEmail(); return false;">
+            <table cellpadding="40">
+                <tr>
+                    <td>
+                        <table>
+                            <h2>Fill up the form correctly</h2>
+
+                            <tr>
+                                <td><label><strong>First Name</strong></label></td>
+                                <td><input type="text" name="First Name" required></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>Middle Name</strong></label></td>
+                                <td><input type="text" name="Middle Name"></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>Last Name</strong></label></td>
+                                <td><input type="text" name="Last Name" required></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>Email</strong></label></td>
+                                <td><input type="email" name="Email" required></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>Address</strong></label></td>
+                                <td><input type="text" name="Address" required></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>Contact No.</strong></label></td>
+                                <td><input type="tel" name="Contact Number" required></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>More Info</strong></label></td>
+                                <td><textarea name="Additional Note" cols="20" rows="5"></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td><label><strong>Payment Method</strong></label></td>
+                                <td>
+                                    <input type="radio" name="Payment Method" value="Cash on Delivery" required> Cash on Delivery <br>
+                                    <input type="radio" name="Payment Method" value="Bank Deposit"> Bank Deposit <br>
+                                    <input type="radio" name="Payment Method" value="G-Cash"> G-Cash
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="submit" value="Submit Order"></td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td>
+                        <table>
+                            <tr>
+                                <td><input type="checkbox" name="S.COUPS Nana Tour Shirt" value="Free Size"></td>
+                                <td><label><strong>S.COUPS (T-SHIRT)</strong></label></td>
+                                <td><img src="S.COUPS_NanaTour Shirt.jpg" height="200" width="200"></td>
+
+                                <td><input type="checkbox" name="WONWOO Nana Tour Shirt" value="Free Size"></td>
+                                <td><label><strong>WONWOO (T-SHIRT)</strong></label></td>
+                                <td><img src="WONWOO_NanaTour Shirt.jpg" height="200" width="200"></td>
+
+                                <td><input type="checkbox" name="MINGYU Nana Tour Shirt" value="Free Size"></td>
+                                <td><label><strong>MINGYU (T-SHIRT)</strong></label></td>
+                                <td><img src="MINGYU_NanaTour Shirt.jpg" height="200" width="200"></td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" name="VERNON Nana Tour Shirt" value="Free Size"></td>
+                                <td><label><strong>VERNON (T-SHIRT)</strong></label></td>
+                                <td><img src="VERNON_NanaTour Shirt.jpg" height="200" width="200"></td>
+
+                                <td><input type="checkbox" name="FACE THE SUN ALBUM" value="Free Size"></td>
+                                <td><label><strong>FACE THE SUN ALBUM</strong></label></td>
+                                <td><img src="FACE THE SUN ALBUM.jpeg" height="200" width="200"></td>
+
+                                <td><input type="checkbox" name="ATTACA ALBUM" value="Free Size"></td>
+                                <td><label><strong>ATTACA ALBUM</strong></label></td>
+                                <td><img src="ATTACA ALBUM.jpg" height="200" width="200"></td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="checkbox" name="AI1 ALBUM" value="Free Size"></td>
+                                <td><label><strong>AI1 ALBUM</strong></label></td>
+                                <td><img src="AI1 ALBUM.jpg" height="250" width="250"></td>
+
+                                <td><input type="checkbox" name="SECTOR7 ALBUM" value="Free Size"></td>
+                                <td><label><strong>SECTOR7 ALBUM</strong></label></td>
+                                <td><img src="SECTOR7 ALBUM.jpg" height="250" width="250"></td>
+
+                                <td><input type="checkbox" name="GOING SEVENTEEN ALBUM" value="Free Size"></td>
+                                <td><label><strong>GOING SEVENTEEN ALBUM</strong></label></td>
+                                <td><img src="GOING SEVENTEEN.jpg" height="200" width="200"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <a href="SVT Hip-Hop Unit(WEBPAGE).html">ANSWER THIS</a>
+    </center>
+</body>
+</html>
